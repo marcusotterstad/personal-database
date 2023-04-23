@@ -1,0 +1,6 @@
+POST http://localhost:3000/workouts HTTP/1.1
+content-type: application/json
+
+{
+    "prompt": "Insert a new workout into the database. I trained today (2022-01-01) and it lasted 45 minutes. I did Push by the way."
+}

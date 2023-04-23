@@ -35,7 +35,7 @@ db.serialize(() => {
   `);
 
   db.run(`
-    CREATE TABLE daily_habits (
+    CREATE TABLE daily_tasks (
       id INTEGER PRIMARY KEY,
       date TEXT NOT NULL,
       habit TEXT NOT NULL,
@@ -45,6 +45,15 @@ db.serialize(() => {
       FOREIGN KEY (workout_id) REFERENCES workouts(id)
     )
   `);
+  db.run(`CREATE TABLE tasks (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT
+  );
+  ALTER TABLE daily_habits
+  ADD COLUMN task_id INTEGER REFERENCES tasks(id);
+  `)
+
 });
 
 // insert some sample data
@@ -54,9 +63,6 @@ db.serialize(() => {
     VALUES (?, ?, ?)
   `);
   
-  workoutStmt.run('2022-01-01', 'New Year Workout', 60);
-  workoutStmt.run('2022-01-02', 'Chest and Back', 90);
-  workoutStmt.run('2022-01-03', 'Leg Day', 75);
 
   const exerciseStmt = db.prepare(`
     INSERT INTO exercises (name)
