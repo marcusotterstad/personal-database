@@ -1,1 +1,2 @@
-GET http://localhost:3000/queries/?query=find%20all%20sets%20i%20did%20Muscle%20Ups
+GET http://localhost:3000/queries/?query=get%20workouts%20where%20workout%20id%20is%2011
+

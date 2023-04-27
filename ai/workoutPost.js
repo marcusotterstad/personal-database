@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -27,7 +27,8 @@ const workoutPOST = async function(inputPrompt) {
     presence_penalty: 0.0,
     stop: ["user:", "response:"],
   });
-  return(response.data.choices[0].text.replace(/"/g, ''))
+  const formattedResponse = response.data.choices[0].text.replace(/"/g, '')
+  return formattedResponse
 }
 
-module.exports = {workoutPOST}
+module.exports = {workoutPOST} 
