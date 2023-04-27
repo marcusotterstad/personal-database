@@ -1,9 +1,1 @@
-POST http://localhost:3000/workouts HTTP/1.1
-content-type: application/json
-
-{
-    "prompt": "I trained push at 14/04/2023 for 20 minutes"
-}
-//
-
-POST
+GET http://localhost:3000/queries/?query=find%20all%20sets%20i%20did%20Muscle%20Ups
